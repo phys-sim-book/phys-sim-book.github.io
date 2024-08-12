@@ -1,0 +1,8 @@
+add_subdirectory(1_mass_spring)
+add_subdirectory(2_dirichlet)
+add_subdirectory(3_contact)
+add_subdirectory(4_friction)
+add_subdirectory(5_mov_dirichlet)
+add_subdirectory(6_inv_free)
+add_subdirectory(7_self_contact)
+add_subdirectory(8_self_friction)
