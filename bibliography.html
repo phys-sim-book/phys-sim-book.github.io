@@ -1,0 +1,615 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bibliography - Physics-Based Simulation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded affix "><li class="part-title">Simulation with Optimization</li><li class="chapter-item expanded "><a href="lec1-discrete_space_time.html"><strong aria-hidden="true">1.</strong> Discrete Space and Time</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec1.1-solid_rep.html"><strong aria-hidden="true">1.1.</strong> Representations of a Solid Geometry</a></li><li class="chapter-item expanded "><a href="lec1.2-newton_2nd_law.html"><strong aria-hidden="true">1.2.</strong> Newton's Second Law</a></li><li class="chapter-item expanded "><a href="lec1.3-time_integration.html"><strong aria-hidden="true">1.3.</strong> Time Integration</a></li><li class="chapter-item expanded "><a href="lec1.4-explicit_time_integration.html"><strong aria-hidden="true">1.4.</strong> Explicit Time Integration</a></li><li class="chapter-item expanded "><a href="lec1.5-implicit_time_integration.html"><strong aria-hidden="true">1.5.</strong> Implicit Time integration</a></li><li class="chapter-item expanded "><a href="lec1.6-summary.html"><strong aria-hidden="true">1.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec2-opt_framework.html"><strong aria-hidden="true">2.</strong> Optimization Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec2.1-opt_time_integration.html"><strong aria-hidden="true">2.1.</strong> Optimization Time Integrator</a></li><li class="chapter-item expanded "><a href="lec2.2-dirichlet_BC.html"><strong aria-hidden="true">2.2.</strong> Dirichlet Boundary Conditions</a></li><li class="chapter-item expanded "><a href="lec2.3-contact.html"><strong aria-hidden="true">2.3.</strong> Contact</a></li><li class="chapter-item expanded "><a href="lec2.4-friction.html"><strong aria-hidden="true">2.4.</strong> Friction</a></li><li class="chapter-item expanded "><a href="lec2.5-summary.html"><strong aria-hidden="true">2.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec3-projected_Newton.html"><strong aria-hidden="true">3.</strong> Projected Newton</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec3.1-conv_issue_Newton.html"><strong aria-hidden="true">3.1.</strong> Convergence of Newton's Method</a></li><li class="chapter-item expanded "><a href="lec3.2-line_search.html"><strong aria-hidden="true">3.2.</strong> Line Search</a></li><li class="chapter-item expanded "><a href="lec3.3-grad_based_opt.html"><strong aria-hidden="true">3.3.</strong> Gradient-Based Optimization</a></li><li class="chapter-item expanded "><a href="lec3.4-summary.html"><strong aria-hidden="true">3.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec4-2d_mass_spring.html"><strong aria-hidden="true">4.</strong> Case Study: 2D Mass-Spring*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec4.1-discretizations.html"><strong aria-hidden="true">4.1.</strong> Spatial and Temporal Discretizations</a></li><li class="chapter-item expanded "><a href="lec4.2-inertia.html"><strong aria-hidden="true">4.2.</strong> Inertia Term</a></li><li class="chapter-item expanded "><a href="lec4.3-mass_spring_energy.html"><strong aria-hidden="true">4.3.</strong> Mass-Spring Potential Energy</a></li><li class="chapter-item expanded "><a href="lec4.4-opt_time_integrator.html"><strong aria-hidden="true">4.4.</strong> Optimization Time Integrator</a></li><li class="chapter-item expanded "><a href="lec4.5-sim_with_vis.html"><strong aria-hidden="true">4.5.</strong> Simulation with Visualization</a></li><li class="chapter-item expanded "><a href="lec4.6-gpu_accel.html"><strong aria-hidden="true">4.6.</strong> GPU-Accelerated Simulation</a></li><li class="chapter-item expanded "><a href="lec4.6-summary.html"><strong aria-hidden="true">4.7.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Boundary Treatments</li><li class="chapter-item expanded "><a href="lec5-dirichlet_BC_solve.html"><strong aria-hidden="true">5.</strong> Dirichlet Boundary Conditions*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec5.1-equality_constraints.html"><strong aria-hidden="true">5.1.</strong> Equality Constraint Formulation</a></li><li class="chapter-item expanded "><a href="lec5.2-DOF_elimin.html"><strong aria-hidden="true">5.2.</strong> DOF Elimination Method</a></li><li class="chapter-item expanded "><a href="lec5.3-hanging_square.html"><strong aria-hidden="true">5.3.</strong> Case Study: Hanging Sqaure*</a></li><li class="chapter-item expanded "><a href="lec5.4-summary.html"><strong aria-hidden="true">5.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec6-slip_DBC.html"><strong aria-hidden="true">6.</strong> Slip Dirichlet Boundary Conditions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec6.1-axis_aligned.html"><strong aria-hidden="true">6.1.</strong> Axis-Aligned Slip DBC</a></li><li class="chapter-item expanded "><a href="lec6.2-change_of_vars.html"><strong aria-hidden="true">6.2.</strong> Change of Variables</a></li><li class="chapter-item expanded "><a href="lec6.3-general_slip_DBC.html"><strong aria-hidden="true">6.3.</strong> General Slip DBC</a></li><li class="chapter-item expanded "><a href="lec6.4-summary.html"><strong aria-hidden="true">6.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec7-dist_barrier.html"><strong aria-hidden="true">7.</strong> Distance Barrier for Nonpenetration</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec7.1-signed_dists.html"><strong aria-hidden="true">7.1.</strong> Signed Distances</a></li><li class="chapter-item expanded "><a href="lec7.2-dist_barrier_formulation.html"><strong aria-hidden="true">7.2.</strong> Distance Barrier</a></li><li class="chapter-item expanded "><a href="lec7.3-sol_accuracy.html"><strong aria-hidden="true">7.3.</strong> Solution Accuracy</a></li><li class="chapter-item expanded "><a href="lec7.4-summary.html"><strong aria-hidden="true">7.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec8-filter_line_search.html"><strong aria-hidden="true">8.</strong> Filter Line Search*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec8.1-tunneling.html"><strong aria-hidden="true">8.1.</strong> Tunneling Issue</a></li><li class="chapter-item expanded "><a href="lec8.2-nonpenetration_traj.html"><strong aria-hidden="true">8.2.</strong> Penetration-free Trajectory</a></li><li class="chapter-item expanded "><a href="lec8.3-square_drop.html"><strong aria-hidden="true">8.3.</strong> Case Study: Square Drop*</a></li><li class="chapter-item expanded "><a href="lec8.4-summary.html"><strong aria-hidden="true">8.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec9-friction.html"><strong aria-hidden="true">9.</strong> Frictional Contact</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec9.1-smooth_fric.html"><strong aria-hidden="true">9.1.</strong> Smooth Dynamic-Static Transition</a></li><li class="chapter-item expanded "><a href="lec9.2-semi_imp_fric.html"><strong aria-hidden="true">9.2.</strong> Semi-Implicit Discretization</a></li><li class="chapter-item expanded "><a href="lec9.3-fixed_point_iter.html"><strong aria-hidden="true">9.3.</strong> Fixed-Point Iteration</a></li><li class="chapter-item expanded "><a href="lec9.4-summary.html"><strong aria-hidden="true">9.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec10-square_on_slope.html"><strong aria-hidden="true">10.</strong> Case Study: Square On Slope*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec10.1-ground_to_slope.html"><strong aria-hidden="true">10.1.</strong> From Ground To Slope</a></li><li class="chapter-item expanded "><a href="lec10.2-slope_fric.html"><strong aria-hidden="true">10.2.</strong> Slope Friction</a></li><li class="chapter-item expanded "><a href="lec10.3-summary.html"><strong aria-hidden="true">10.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec11-mov_DBC.html"><strong aria-hidden="true">11.</strong> Moving Boundary Conditions*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec11.1-penalty_method.html"><strong aria-hidden="true">11.1.</strong> Penalty Method</a></li><li class="chapter-item expanded "><a href="lec11.2-compress_square.html"><strong aria-hidden="true">11.2.</strong> Case Study: Compressing Square*</a></li><li class="chapter-item expanded "><a href="lec11.3-summary.html"><strong aria-hidden="true">11.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Hyperelasticity</li><li class="chapter-item expanded "><a href="lec12-kinematics.html"><strong aria-hidden="true">12.</strong> Kinematics Theory</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec12.1-continuum_motion.html"><strong aria-hidden="true">12.1.</strong> Continuum Motion</a></li><li class="chapter-item expanded "><a href="lec12.2-deformation.html"><strong aria-hidden="true">12.2.</strong> Deformation</a></li><li class="chapter-item expanded "><a href="lec12.3-summary.html"><strong aria-hidden="true">12.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec13-strain_energy.html"><strong aria-hidden="true">13.</strong> Strain Energy</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec13.1-rigid_null_rot_inv.html"><strong aria-hidden="true">13.1.</strong> Rigid Null Space and Rotation Invariance</a></li><li class="chapter-item expanded "><a href="lec13.2-polar_svd.html"><strong aria-hidden="true">13.2.</strong> Polar Singular Value Decomposition</a></li><li class="chapter-item expanded "><a href="lec13.3-simp_model_inversion.html"><strong aria-hidden="true">13.3.</strong> Simplified Models and Invertibility</a></li><li class="chapter-item expanded "><a href="lec13.4-summary.html"><strong aria-hidden="true">13.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec14-stress_and_derivatives.html"><strong aria-hidden="true">14.</strong> Stress and Its Derivatives</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec14.1-stress.html"><strong aria-hidden="true">14.1.</strong> Stress</a></li><li class="chapter-item expanded "><a href="lec14.2-compute_P.html"><strong aria-hidden="true">14.2.</strong> Computing Stress</a></li><li class="chapter-item expanded "><a href="lec14.3-compute_stress_deriv.html"><strong aria-hidden="true">14.3.</strong> Computing Stress Derivatives</a></li><li class="chapter-item expanded "><a href="lec14.4-summary.html"><strong aria-hidden="true">14.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec15-inv_free_elasticity.html"><strong aria-hidden="true">15.</strong> Case Study: Inversion-free Elasticity*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec15.1-linear_tri_elem.html"><strong aria-hidden="true">15.1.</strong> Linear Triangle Elements</a></li><li class="chapter-item expanded "><a href="lec15.2-energy_grad_hess.html"><strong aria-hidden="true">15.2.</strong> Computing Energy, Gradient, and Hessian</a></li><li class="chapter-item expanded "><a href="lec15.3-filter_line_search.html"><strong aria-hidden="true">15.3.</strong> Filter Line Search for Non-Inversion</a></li><li class="chapter-item expanded "><a href="lec15.4-summary.html"><strong aria-hidden="true">15.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Governing Equations</li><li class="chapter-item expanded "><a href="lec16-strong_and_weak_forms.html"><strong aria-hidden="true">16.</strong> Strong and Weak Forms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec16.1-mass_conserv.html"><strong aria-hidden="true">16.1.</strong> Conservation of Mass</a></li><li class="chapter-item expanded "><a href="lec16.2-momentum_conserv.html"><strong aria-hidden="true">16.2.</strong> Conservation of Momentum</a></li><li class="chapter-item expanded "><a href="lec16.3-weak_form.html"><strong aria-hidden="true">16.3.</strong> Weak Form</a></li><li class="chapter-item expanded "><a href="lec16.4-summary.html"><strong aria-hidden="true">16.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec17-disc_weak_form.html"><strong aria-hidden="true">17.</strong> Discretization of Weak Forms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec17.1-discrete_space.html"><strong aria-hidden="true">17.1.</strong> Discrete Space</a></li><li class="chapter-item expanded "><a href="lec17.2-discrete_time.html"><strong aria-hidden="true">17.2.</strong> Discrete Time</a></li><li class="chapter-item expanded "><a href="lec17.3-summary.html"><strong aria-hidden="true">17.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec18-BC_and_fric.html"><strong aria-hidden="true">18.</strong> Boundary Conditions and Frictional Contact</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec18.1-incorporate_BC.html"><strong aria-hidden="true">18.1.</strong> Incorporating Boundary Conditions</a></li><li class="chapter-item expanded "><a href="lec18.2-normal_contact.html"><strong aria-hidden="true">18.2.</strong> Normal Contact for Nonpenetration</a></li><li class="chapter-item expanded "><a href="lec18.3-barrier_potential.html"><strong aria-hidden="true">18.3.</strong> Barrier Potential</a></li><li class="chapter-item expanded "><a href="lec18.4-friction_force.html"><strong aria-hidden="true">18.4.</strong> Friction Force</a></li><li class="chapter-item expanded "><a href="lec18.5-summary.html"><strong aria-hidden="true">18.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Finite Element Method</li><li class="chapter-item expanded "><a href="lec19-linear_FEM.html"><strong aria-hidden="true">19.</strong> Linear Finite Elements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec19.1-linear_disp_field.html"><strong aria-hidden="true">19.1.</strong> Piecewise Linear Displacement Field</a></li><li class="chapter-item expanded "><a href="lec19.2-mass_matrix.html"><strong aria-hidden="true">19.2.</strong> Mass Matrix and Lumping</a></li><li class="chapter-item expanded "><a href="lec19.3-elasticity_term.html"><strong aria-hidden="true">19.3.</strong> Elasticity Term</a></li><li class="chapter-item expanded "><a href="lec19.4-summary.html"><strong aria-hidden="true">19.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec20-pw_linear_boundary.html"><strong aria-hidden="true">20.</strong> Piecewise Linear Boundaries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec20.1-boundary_conditions.html"><strong aria-hidden="true">20.1.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="lec20.2-obstacle_contact.html"><strong aria-hidden="true">20.2.</strong> Solid-Obstacle Contact</a></li><li class="chapter-item expanded "><a href="lec20.3-self_contact.html"><strong aria-hidden="true">20.3.</strong> Self-Contact</a></li><li class="chapter-item expanded "><a href="lec20.4-summary.html"><strong aria-hidden="true">20.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec21-2d_self_contact.html"><strong aria-hidden="true">21.</strong> Case Study: 2D Self-Contact*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec21.1-scene_setup.html"><strong aria-hidden="true">21.1.</strong> Scene Setup and Boundary Element Collection</a></li><li class="chapter-item expanded "><a href="lec21.2-point_edge_dist.html"><strong aria-hidden="true">21.2.</strong> Point-Edge Distance</a></li><li class="chapter-item expanded "><a href="lec21.3-barrier_and_derivatives.html"><strong aria-hidden="true">21.3.</strong> Barrier Energy and Its Derivatives</a></li><li class="chapter-item expanded "><a href="lec21.4-ccd.html"><strong aria-hidden="true">21.4.</strong> Continuous Collision Detection</a></li><li class="chapter-item expanded "><a href="lec21.5-summary.html"><strong aria-hidden="true">21.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec22-2d_self_fric.html"><strong aria-hidden="true">22.</strong> 2D Frictional Self-Contact*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec22.1-disc_and_approx.html"><strong aria-hidden="true">22.1.</strong> Discretization and Approximation</a></li><li class="chapter-item expanded "><a href="lec22.2-precompute.html"><strong aria-hidden="true">22.2.</strong> Precomputing Normal and Tangent Information</a></li><li class="chapter-item expanded "><a href="lec22.3-fric_and_derivatives.html"><strong aria-hidden="true">22.3.</strong> Friction Energy and Its Derivatives</a></li><li class="chapter-item expanded "><a href="lec22.4-summary.html"><strong aria-hidden="true">22.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec23-3d_elastodynamics.html"><strong aria-hidden="true">23.</strong> 3D Elastodynamics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec23.1-kinematics.html"><strong aria-hidden="true">23.1.</strong> Kinematics</a></li><li class="chapter-item expanded "><a href="lec23.2-mass_matrix.html"><strong aria-hidden="true">23.2.</strong> Mass Matrix</a></li><li class="chapter-item expanded "><a href="lec23.3-elasticity.html"><strong aria-hidden="true">23.3.</strong> Elasticity</a></li><li class="chapter-item expanded "><a href="lec23.4-summary.html"><strong aria-hidden="true">23.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec24-3d_fric_self_contact.html"><strong aria-hidden="true">24.</strong> 3D Frictional Self-Contact</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec24.1-barrier_and_dist.html"><strong aria-hidden="true">24.1.</strong> Barrier and Distances</a></li><li class="chapter-item expanded "><a href="lec24.2-collision_detection.html"><strong aria-hidden="true">24.2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="lec24.3-friction.html"><strong aria-hidden="true">24.3.</strong> Friction</a></li><li class="chapter-item expanded "><a href="lec24.4-summary.html"><strong aria-hidden="true">24.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Spatial Reductions</li><li class="chapter-item expanded "><a href="lec25-rigid_body_sim.html"><strong aria-hidden="true">25.</strong> Rigid Body Simulation*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec25.1-rigid_body_dynamics.html"><strong aria-hidden="true">25.1.</strong> Rigid Body Dynamics</a></li><li class="chapter-item expanded "><a href="lec25.2-subspace_sim.html"><strong aria-hidden="true">25.2.</strong> Subspace Simulation</a></li><li class="chapter-item expanded "><a href="lec25.3-affine_body_dynamics.html"><strong aria-hidden="true">25.3.</strong> Affine Body Dynamics</a></li><li class="chapter-item expanded "><a href="lec25.4-dropping_block.html"><strong aria-hidden="true">25.4.</strong> Case Study: ABD Square Drop*</a></li><li class="chapter-item expanded "><a href="lec25.5-summary.html"><strong aria-hidden="true">25.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec25.6-modal_reductions.html"><strong aria-hidden="true">26.</strong> Modal Reductions*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec25.7-linear_modal_analysis.html"><strong aria-hidden="true">26.1.</strong> Linear Modal Analysis</a></li><li class="chapter-item expanded "><a href="lec25.7.2-linear_demo.html"><strong aria-hidden="true">26.2.</strong> Linear Demo*</a></li><li class="chapter-item expanded "><a href="lec25.8-nonlinear_reductions.html"><strong aria-hidden="true">26.3.</strong> Non-linear Reductions</a></li><li class="chapter-item expanded "><a href="lec25.9-basis_choice.html"><strong aria-hidden="true">26.4.</strong> Reduction Basis</a></li><li class="chapter-item expanded "><a href="lec25.10-summary.html"><strong aria-hidden="true">26.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Material Point Method</li><li class="chapter-item expanded "><a href="lec26-mpm_disc.html"><strong aria-hidden="true">27.</strong> Spatial and Temporal Discretization</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec26.1-material_particles.html"><strong aria-hidden="true">27.1.</strong> Material Particles</a></li><li class="chapter-item expanded "><a href="lec26.2-interpolating_functions.html"><strong aria-hidden="true">27.2.</strong> Interpolating Functions</a></li><li class="chapter-item expanded "><a href="lec26.3-euler_lag_transfers.html"><strong aria-hidden="true">27.3.</strong> Particle-Grid Transfers</a></li><li class="chapter-item expanded "><a href="lec26.4-particle_state_update.html"><strong aria-hidden="true">27.4.</strong> Deformation Gradient and Particle State Update</a></li><li class="chapter-item expanded "><a href="lec26.5-summary.html"><strong aria-hidden="true">27.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec27-mpm_plasticity.html"><strong aria-hidden="true">28.</strong> Beyond Elasticity: Plasticity and Viscosity</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec27.1-disc_plastic_flow.html"><strong aria-hidden="true">28.1.</strong> Discretization of Plastic Flow</a></li><li class="chapter-item expanded "><a href="lec27.2-yield_criterion.html"><strong aria-hidden="true">28.2.</strong> Yield Condition and Return Mapping</a></li><li class="chapter-item expanded "><a href="lec27.3-summary.html"><strong aria-hidden="true">28.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec28-mpm_bc.html"><strong aria-hidden="true">29.</strong> Boundary Treatments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec28.1-grid_bc.html"><strong aria-hidden="true">29.1.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="lec28.2-contact_on_particles.html"><strong aria-hidden="true">29.2.</strong> Frictional Contact on Material Particles</a></li><li class="chapter-item expanded "><a href="lec28.3-summary.html"><strong aria-hidden="true">29.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec29-mpm_elastic_case_study.html"><strong aria-hidden="true">30.</strong> Case Study: Two Colliding Elastic Blocks in 2D*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec29.1-simulation_setup.html"><strong aria-hidden="true">30.1.</strong> Simulation Setup</a></li><li class="chapter-item expanded "><a href="lec29.2-pic_transfer.html"><strong aria-hidden="true">30.2.</strong> Particle-In-Cell Transfer</a></li><li class="chapter-item expanded "><a href="lec29.3-summary.html"><strong aria-hidden="true">30.3.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec30-mpm_sand_case_study.html"><strong aria-hidden="true">31.</strong> Case Study: 2D Sand with a Sphere Collider*</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec30.1-drucker_prager.html"><strong aria-hidden="true">31.1.</strong> Drucker-Prager Elastoplasticity</a></li><li class="chapter-item expanded "><a href="lec30.2-sphere_sdf.html"><strong aria-hidden="true">31.2.</strong> SDF-based Sphere Collider</a></li><li class="chapter-item expanded "><a href="lec30.3-apic_transfer.html"><strong aria-hidden="true">31.3.</strong> Affine Particle-In-Cell Transfer</a></li><li class="chapter-item expanded "><a href="lec30.4-summary.html"><strong aria-hidden="true">31.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Position Based Simulations</li><li class="chapter-item expanded "><a href="lec31-position_based_dynamics.html"><strong aria-hidden="true">32.</strong> Position Based Dynamics (PBD)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec31.1-pbd_preliminaries.html"><strong aria-hidden="true">32.1.</strong> Particle Simulation Preliminaries</a></li><li class="chapter-item expanded "><a href="lec31.2-core_framework.html"><strong aria-hidden="true">32.2.</strong> Core Algorithm / Position Based Framework</a></li><li class="chapter-item expanded "><a href="lec31.3-formulation.html"><strong aria-hidden="true">32.3.</strong> Constraint Formulation</a></li><li class="chapter-item expanded "><a href="lec31.4-solver.html"><strong aria-hidden="true">32.4.</strong> Constraint Solver</a></li><li class="chapter-item expanded "><a href="lec31.5-stiffness_damping.html"><strong aria-hidden="true">32.5.</strong> Stiffness and Damping</a></li><li class="chapter-item expanded "><a href="lec31.6-summary.html"><strong aria-hidden="true">32.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="lec32-pbd_constraint_types.html"><strong aria-hidden="true">33.</strong> PBD Constraint Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec32.1-pbd_cloth_constraints.html"><strong aria-hidden="true">33.1.</strong> Cloth: Stretching and Bending</a></li><li class="chapter-item expanded "><a href="lec32.2-pbd_collisions_constraints.html"><strong aria-hidden="true">33.2.</strong> Collision Constraints</a></li><li class="chapter-item expanded "><a href="lec32.3-pbd_volume_constraints.html"><strong aria-hidden="true">33.3.</strong> Volume Conservation Constraints</a></li><li class="chapter-item expanded "><a href="lec32.4-position_based_fluids.html"><strong aria-hidden="true">33.4.</strong> Position Based Fluids: Density and Surface Constraints</a></li><li class="chapter-item expanded "><a href="lec32.5-pbd_continuum.html"><strong aria-hidden="true">33.5.</strong> Continuum-based Constraints</a></li><li class="chapter-item expanded "><a href="lec32-summary.html"><strong aria-hidden="true">33.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Special Topics</li><li class="chapter-item expanded "><a href="lec33-linear_sys.html"><strong aria-hidden="true">34.</strong> Linear System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lec33.1-direct_solver.html"><strong aria-hidden="true">34.1.</strong> Direct Solver</a></li><li class="chapter-item expanded "><a href="lec33.2-basic_iterative_methods.html"><strong aria-hidden="true">34.2.</strong> Basic Iterative Methods</a></li><li class="chapter-item expanded "><a href="lec33.3-conjugate_gradient.html"><strong aria-hidden="true">34.3.</strong> Conjugate Gradient</a></li><li class="chapter-item expanded "><a href="lec33.4-summary.html"><strong aria-hidden="true">34.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="bibliography.html" class="active">Bibliography</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Physics-Based Simulation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="bibliography"><a class="header" href="#bibliography">Bibliography</a></h1>
+<script type="text/javascript">
+function defaultCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        var ok = document.execCommand('copy');
+        var msg = ok ? 'was ok' : 'failed';
+        console.log('Backing copy: Text copy was ' + msg);
+    } catch (err) {
+        console.error('Backing copy: Unable to copy text', err);
+    }
+
+    document.body.removeChild(textArea);
+}
+
+function copyToClipboard(text) {
+    if (!navigator.clipboard) {
+        defaultCopyTextToClipboard(text);
+        return;
+    }
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Text copied to clipboard');
+    }, function(err) {
+        console.error('Error copying text: ', err);
+    });
+}
+
+</script>
+<style></style>
+<div class="bib_div">
+<details data-key="jiang2016material" class=ref>
+<summary class=citation>
+<a id="jiang2016material">[Jiang et al. 2016]</a> - Jiang, Chenfanfu and Schroeder, Craig and Teran, Joseph and Stomakhin, Alexey and Selle, Andrew - <cite>The Material Point Method for Simulating Continuum Materials</cite>. - 2016. -
+<button onclick="copyToClipboard('\{\{ #cite jiang2016material \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract"><a class="header" href="#summaryabstract">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="chen2022unified" class=ref>
+<summary class=citation>
+<a id="chen2022unified">[Chen et al. 2022]</a> - Chen, Yunuo and Li, Minchen and Lan, Lei and Su, Hao and Yang, Yin and Jiang, Chenfanfu - <cite>A unified newton barrier method for multibody dynamics</cite>. - 2022. -
+<button onclick="copyToClipboard('\{\{ #cite chen2022unified \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-1"><a class="header" href="#summaryabstract-1">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="li2020incremental" class=ref>
+<summary class=citation>
+<a id="li2020incremental">[Li et al. 2020]</a> - Li, Minchen and Ferguson, Zachary and Schneider, Teseo and Langlois, Timothy R and Zorin, Denis and Panozzo, Daniele and Jiang, Chenfanfu and Kaufman, Danny M - <cite>Incremental potential contact: intersection-and inversion-free, large-deformation dynamics.</cite>. - 2020. -
+<button onclick="copyToClipboard('\{\{ #cite li2020incremental \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-2"><a class="header" href="#summaryabstract-2">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="stomakhin2012energetically" class=ref>
+<summary class=citation>
+<a id="stomakhin2012energetically">[Stomakhin et al. 2012]</a> - Stomakhin, Alexey and Howes, Russell and Schroeder, Craig A and Teran, Joseph M - <cite>Energetically Consistent Invertible Elasticity.</cite>. - 2012. -
+<button onclick="copyToClipboard('\{\{ #cite stomakhin2012energetically \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-3"><a class="header" href="#summaryabstract-3">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="smith2018stable" class=ref>
+<summary class=citation>
+<a id="smith2018stable">[Smith et al. 2018]</a> - Smith, Breannan and Goes, Fernando De and Kim, Theodore - <cite>Stable neo-hookean flesh simulation</cite>. - 2018. -
+<button onclick="copyToClipboard('\{\{ #cite smith2018stable \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-4"><a class="header" href="#summaryabstract-4">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="schroeder2022practical" class=ref>
+<summary class=citation>
+<a id="schroeder2022practical">[Schroeder 2022]</a> - Schroeder, Craig - <cite>Practical course on computing derivatives in code</cite>. - 2022. -
+<button onclick="copyToClipboard('\{\{ #cite schroeder2022practical \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-5"><a class="header" href="#summaryabstract-5">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="irving2004invertible" class=ref>
+<summary class=citation>
+<a id="irving2004invertible">[Irving et al. 2004]</a> - Irving, Geoffrey and Teran, Joseph and Fedkiw, Ronald - <cite>Invertible finite elements for robust simulation of large deformation</cite>. - 2004. -
+<button onclick="copyToClipboard('\{\{ #cite irving2004invertible \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-6"><a class="header" href="#summaryabstract-6">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="gonzalez2008first" class=ref>
+<summary class=citation>
+<a id="gonzalez2008first">[Gonzalez & Stuart 2008]</a> - Gonzalez, Oscar and Stuart, Andrew M - <cite>A first course in continuum mechanics</cite>. - 2008. -
+<button onclick="copyToClipboard('\{\{ #cite gonzalez2008first \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-7"><a class="header" href="#summaryabstract-7">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="sifakis2012finite" class=ref>
+<summary class=citation>
+<a id="sifakis2012finite">[Sifakis & Barbic 2012]</a> - Sifakis, Eftychios and Barbic, Jernej - <a href="https://doi.org/10.1145/2343483.2343501" target="_blank"><cite>FEM simulation of 3D deformable solids: a practitioner&#x27;s guide to theory, discretization and model reduction</cite></a>. - 2012. -
+<button onclick="copyToClipboard('\{\{ #cite sifakis2012finite \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-8"><a class="header" href="#summaryabstract-8">Summary/Abstract</a></h1>
+<div>A practical guide to finite-element-method (FEM) simulation of 3D deformable solids reviews essential offline FEM simulation techniques: complex nonlinear materials, invertible treatment of elasticity, and model-reduction techniques for real-time simulation.Simulations of deformable solids are important in many applications in computer graphics, including film special effects, computer games, and virtual surgery. FEM has become a popular method in many applications. Both offline simulation and real-time techniques have matured in computer graphics literature.This course is designed for attendees familiar with numerical simulation in computer graphics who would like to obtain a cohesive picture of the various FEM simulation methods available, their strengths and weaknesses, and their applicability in various simulation scenarios. The course is also a practical implementation guide for the visual-effects developer, offering a very lean yet adequate synopsis of the underlying mathematical theory. The first section introduces FEM deformable-object simulation and its fundamental concepts, such as deformation gradient, strain, stress, and elastic energy, discusses corotational FEM models, isotropic hyperelasticity, and numerical methods such as conjugate gradients and multigrid. The second section presents the state of the art in model reduction techniques for real-time FEM solid simulation. Topics include linear modal analysis, modal warping, subspace simulation, domain decomposition, and which techniques are suitable for which application.</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="xu2015nonlinear" class=ref>
+<summary class=citation>
+<a id="xu2015nonlinear">[Xu et al. 2015]</a> - Xu, Hongyi and Sin, Funshing and Zhu, Yufeng and Barbic, Jernej - <cite>Nonlinear material design using principal stretches</cite>. - 2015. -
+<button onclick="copyToClipboard('\{\{ #cite xu2015nonlinear \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-9"><a class="header" href="#summaryabstract-9">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="li2023convergent" class=ref>
+<summary class=citation>
+<a id="li2023convergent">[Li et al. 2023]</a> - Li, Minchen and Ferguson, Zachary and Schneider, Teseo and Langlois, Timothy and Zorin, Denis and Panozzo, Daniele and Jiang, Chenfanfu and Kaufman, Danny M - <cite>Convergent Incremental Potential Contact</cite>. - 2023. -
+<button onclick="copyToClipboard('\{\{ #cite li2023convergent \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-10"><a class="header" href="#summaryabstract-10">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="li2021codimensional" class=ref>
+<summary class=citation>
+<a id="li2021codimensional">[Li et al. 2021]</a> - Li, Minchen and Kaufman, Danny M and Jiang, Chenfanfu - <cite>Codimensional incremental potential contact</cite>. - 2021. -
+<button onclick="copyToClipboard('\{\{ #cite li2021codimensional \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-11"><a class="header" href="#summaryabstract-11">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="jiang2015affine" class=ref>
+<summary class=citation>
+<a id="jiang2015affine">[Jiang et al. 2015]</a> - Jiang, Chenfanfu and Schroeder, Craig and Selle, Andrew and Teran, Joseph and Stomakhin, Alexey - <cite>The affine particle-in-cell method</cite>. - 2015. -
+<button onclick="copyToClipboard('\{\{ #cite jiang2015affine \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-12"><a class="header" href="#summaryabstract-12">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="hu2018moving" class=ref>
+<summary class=citation>
+<a id="hu2018moving">[Hu et al. 2018]</a> - Hu, Yuanming and Fang, Yu and Ge, Ziheng and Qu, Ziyin and Zhu, Yixin and Pradhana, Andre and Jiang, Chenfanfu - <cite>A moving least squares material point method with displacement discontinuity and two-way rigid body coupling</cite>. - 2018. -
+<button onclick="copyToClipboard('\{\{ #cite hu2018moving \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-13"><a class="header" href="#summaryabstract-13">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="klar2016drucker" class=ref>
+<summary class=citation>
+<a id="klar2016drucker">[Klar et al. 2016]</a> - Klar, Gergely and Gast, Theodore and Pradhana, Andre and Fu, Chuyuan and Schroeder, Craig and Jiang, Chenfanfu and Teran, Joseph - <cite>Drucker-prager elastoplasticity for sand animation</cite>. - 2016. -
+<button onclick="copyToClipboard('\{\{ #cite klar2016drucker \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-14"><a class="header" href="#summaryabstract-14">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="tampubolon2017multi" class=ref>
+<summary class=citation>
+<a id="tampubolon2017multi">[Tampubolon et al. 2017]</a> - Tampubolon, Andre Pradhana and Gast, Theodore and Klar, Gergely and Fu, Chuyuan and Teran, Joseph and Jiang, Chenfanfu and Museth, Ken - <cite>Multi-species simulation of porous sand and water mixtures</cite>. - 2017. -
+<button onclick="copyToClipboard('\{\{ #cite tampubolon2017multi \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-15"><a class="header" href="#summaryabstract-15">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="brackbill1988flip" class=ref>
+<summary class=citation>
+<a id="brackbill1988flip">[Brackbill et al. 1988]</a> - Brackbill, Jeremiah U and Kothe, Douglas B and Ruppel, Hans M - <cite>FLIP: a low-dissipation, particle-in-cell method for fluid flow</cite>. - 1988. -
+<button onclick="copyToClipboard('\{\{ #cite brackbill1988flip \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-16"><a class="header" href="#summaryabstract-16">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="bridson2015fluid" class=ref>
+<summary class=citation>
+<a id="bridson2015fluid">[Bridson 2015]</a> - Bridson, Robert - <cite>Fluid simulation for computer graphics</cite>. - 2015. -
+<button onclick="copyToClipboard('\{\{ #cite bridson2015fluid \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-17"><a class="header" href="#summaryabstract-17">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="harlow1962particle" class=ref>
+<summary class=citation>
+<a id="harlow1962particle">[Harlow 1962]</a> - Harlow, Francis H - <cite>The particle-in-cell method for numerical solution of problems in fluid dynamics</cite>. - 1962. -
+<button onclick="copyToClipboard('\{\{ #cite harlow1962particle \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-18"><a class="header" href="#summaryabstract-18">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="lan2022affine" class=ref>
+<summary class=citation>
+<a id="lan2022affine">[Lan et al. 2022]</a> - Lan, Lei and Kaufman, Danny M and Li, Minchen and Jiang, Chenfanfu and Yang, Yin - <cite>Affine body dynamics: Fast, stable \&amp; intersection-free simulation of stiff materials</cite>. - 2022. -
+<button onclick="copyToClipboard('\{\{ #cite lan2022affine \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-19"><a class="header" href="#summaryabstract-19">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="an2008optimizing" class=ref>
+<summary class=citation>
+<a id="an2008optimizing">[An et al. 2008]</a> - An, Steven S and Kim, Theodore and James, Doug L - <cite>Optimizing cubature for efficient integration of subspace deformations</cite>. - 2008. -
+<button onclick="copyToClipboard('\{\{ #cite an2008optimizing \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-20"><a class="header" href="#summaryabstract-20">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="bender2017survey" class=ref>
+<summary class=citation>
+<a id="bender2017survey">[Bender et al. 2017]</a> - Bender, Jan and M{\u}ller, Matthias and Macklin, Miles - <cite>A survey on position based dynamics, 2017</cite>. - 2017. -
+<button onclick="copyToClipboard('\{\{ #cite bender2017survey \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-21"><a class="header" href="#summaryabstract-21">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="macklin2013position" class=ref>
+<summary class=citation>
+<a id="macklin2013position">[Macklin & Muller 2013]</a> - Macklin, Miles and Muller, Matthias - <cite>Position based fluids</cite>. - 2013. -
+<button onclick="copyToClipboard('\{\{ #cite macklin2013position \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-22"><a class="header" href="#summaryabstract-22">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="muller2008hierarchical" class=ref>
+<summary class=citation>
+<a id="muller2008hierarchical">[Müller 2008]</a> - Müller, Matthias - <cite>Hierarchical position based dynamics</cite>. - 2008. -
+<button onclick="copyToClipboard('\{\{ #cite muller2008hierarchical \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-23"><a class="header" href="#summaryabstract-23">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="bergou2006quadratic" class=ref>
+<summary class=citation>
+<a id="bergou2006quadratic">[Bergou et al. 2006]</a> - Bergou, Miklos and Wardetzky, Max and Harmon, David and Zorin, Denis and Grinspun, Eitan - <cite>A quadratic bending model for inextensible surfaces</cite>. - 2006. -
+<button onclick="copyToClipboard('\{\{ #cite bergou2006quadratic \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-24"><a class="header" href="#summaryabstract-24">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="koschier2020smoothed" class=ref>
+<summary class=citation>
+<a id="koschier2020smoothed">[Koschier et al. 2020]</a> - Koschier, Dan and Bender, Jan and Solenthaler, Barbara and Teschner, Matthias - <cite>Smoothed particle hydrodynamics techniques for the physics based simulation of fluids and solids</cite>. - 2020. -
+<button onclick="copyToClipboard('\{\{ #cite koschier2020smoothed \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-25"><a class="header" href="#summaryabstract-25">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+<div class="bib_div">
+<details data-key="smith2005open" class=ref>
+<summary class=citation>
+<a id="smith2005open">[Smith & others 2005]</a> - Smith, Russell and others - <cite>Open dynamics engine</cite>. - 2005. -
+<button onclick="copyToClipboard('\{\{ #cite smith2005open \}\}')">Copy citation_key</button>
+</summary>
+<section class=abstract>
+<h1 id="summaryabstract-26"><a class="header" href="#summaryabstract-26">Summary/Abstract</a></h1>
+<div>N/A</div>
+</section>
+</details>
+</div>
+<br/>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="lec33.4-summary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="lec33.4-summary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
