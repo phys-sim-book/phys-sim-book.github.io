@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Complete Cloth Simulation - Physics-Based Simulation</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google Scholar / citation metadata -->
+        <meta name="citation_title" content="Physics-Based Simulation">
+        <meta name="citation_author" content="Li, Minchen">
+        <meta name="citation_author" content="Jiang, Chenfanfu">
+        <meta name="citation_author" content="Luo, Zhaofeng">
+        <meta name="citation_author" content="Du, Wenxin">
+        <meta name="citation_author" content="Yu, Chang">
+        <meta name="citation_author" content="Kovačič, Žiga">
+        <meta name="citation_author" content="Xie, Tianyi">
+        <meta name="citation_publication_date" content="2026/03">
+        <meta name="citation_online_date" content="2026/03">
+        <meta name="citation_doi" content="10.5281/zenodo.20597655">
+        <meta name="citation_pdf_url" content="https://phys-sim-book.github.io/">
+        <meta name="citation_language" content="en">
+        <meta name="citation_version" content="1.0.3">
+        <meta name="description" content="An open-source online book on the theory and algorithms of physics-based simulation.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././theme/catppuccin.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "macchiato";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Physics-Based Simulation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h2 id="complete-cloth-simulation"><a class="header" href="#complete-cloth-simulation">Complete Cloth Simulation</a></h2>
+<p>Now we combine the stretching and bending constraints we've implemented to create a complete cloth simulation. The main simulation loop solves both constraint types iteratively, then updates velocities.</p>
+<pre><code class="language-python">def substep(grab_id, grab_x, grab_y, grab_z):
+    """Complete cloth simulation integrating all components"""
+    pre_solve(sdt)
+    for _ in range(solver_iterations):
+        solve_stretching_constraints(stretching_compliance, sdt)
+        solve_bending_constraints(bending_compliance, sdt)
+    apply_grab(grab_id, grab_x, grab_y, grab_z)
+    post_solve(sdt)
+</code></pre>
+<p>The solver alternates between stretching and bending constraints in each iteration. Stretching constraints are solved first because they provide structural integrity, then bending constraints add realistic draping behavior.</p>
+<p>Before we can run the simulation, we need to set up the physics state. Cloth simulation requires careful mass distribution based on triangle areas to ensure realistic behavior:</p>
+<pre><code class="language-python">@ti.kernel
+def init_physics():
+    """Initialize physics state with proper mass distribution"""
+    for i in range(num_particles):
+        prev_pos[i] = pos[i]
+        vel[i] = ti.Vector([0.0, 0.0, 0.0])
+    
+    inv_mass.fill(0.0)
+    for i in range(num_tris):
+        id0, id1, id2 = tri_ids[i * 3], tri_ids[i * 3 + 1], tri_ids[i * 3 + 2]
+        p0, p1, p2 = pos[id0], pos[id1], pos[id2]
+        area = 0.5 * (p1 - p0).cross(p2 - p0).norm()
+        p_inv_mass = 1.0 / (area / 3.0) if area &gt; 0 else 0.0
+        inv_mass[id0] += p_inv_mass
+        inv_mass[id1] += p_inv_mass
+        inv_mass[id2] += p_inv_mass
+    
+    # Initialize constraint rest lengths
+    for i in range(num_stretching_constraints):
+        id0, id1 = stretching_ids[i, 0], stretching_ids[i, 1]
+        stretching_lengths[i] = (pos[id0] - pos[id1]).norm()
+    for i in range(num_bending_constraints):
+        id0, id1 = bending_ids[i, 0], bending_ids[i, 1]
+        bending_lengths[i] = (pos[id0] - pos[id1]).norm()
+    
+    for i in range(num_particles):
+        original_inv_mass[i] = inv_mass[i]
+</code></pre>
+<p>This initialization computes mass distribution based on triangle areas, ensuring that vertices belonging to larger triangles have more mass. This creates realistic cloth behavior where the material responds appropriately to external forces.</p>
+<p>For a hanging cloth scenario, we pin the top vertices by setting their inverse mass to zero:</p>
+<pre><code class="language-python">@ti.kernel
+def pin_top_vertices():
+    """Pin vertices with highest Y values (top of cloth) by setting their inverse mass to zero"""
+    max_y = -1e9
+    for i in range(num_particles):
+        if pos[i].y &gt; max_y:
+            max_y = pos[i].y
+    for i in range(num_particles):
+        if pos[i].y &gt;= max_y - 1e-6:
+            inv_mass[i] = 0.0
+</code></pre>
+<p>This creates a "hanging cloth" scenario where the top edge is fixed, allowing the rest of the cloth to drape naturally under gravity.</p>
+<p>The simulation also includes interactive manipulation capabilities:</p>
+<pre><code class="language-python">@ti.kernel
+def apply_grab(particle_idx: ti.i32, target_x: ti.f64, target_y: ti.f64, target_z: ti.f64):
+    """Apply interactive manipulation to a specific particle"""
+    if particle_idx != -1:
+        target_pos = ti.Vector([target_x, target_y, target_z])
+        pos[particle_idx] = target_pos
+        vel[particle_idx] = ti.Vector([0.0, 0.0, 0.0])
+        grab_indicator_pos[0] = target_pos
+</code></pre>
+<p>This allows for real-time interaction with the cloth, enabling users to grab and manipulate specific vertices, which is useful for testing material properties and creating animations.</p>
+<h3 id="simulation-results"><a class="header" href="#simulation-results">Simulation Results</a></h3>
+<p>The complete cloth implementation demonstrates realistic fabric behavior through geometric constraints, showcasing proper draping, wrinkling, and response to external forces and manipulation.</p>
+<figure>
+    <center>
+        <img src="cloth.gif">
+    </center>
+        <figcaption><b><a name="fig:cloth:bending"></a>
+Figure 33.3.1.</b> Cloth draping under gravity with stretching and bending constraints enforcing length and curvature.</figcaption>
+</figure>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../position-based-simulations/case-study-cloth-simulation/bending_constraints.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../position-based-simulations/case-study-mesh-simulation/mesh_pbd.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../position-based-simulations/case-study-cloth-simulation/bending_constraints.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../position-based-simulations/case-study-mesh-simulation/mesh_pbd.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
